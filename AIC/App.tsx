@@ -32,7 +32,7 @@ export default function App() {
       />
       <Tab.Screen name="Favorites" component={Favorites}
       options={{
-        tabBarIcon:({focused})=>{return  <Icon name="rocket" size={30} color="black" style={{color: focused?'#24acb4':'grey'}} />},
+        tabBarIcon:({focused})=>{return  <Icon name="rocket" size={30} color="black" style={{color: focused?'#5A7E54':'grey'}} />},
         tabBarActiveTintColor:'#6d32a8',
         tabBarIconStyle:{color:'black'}
       }}

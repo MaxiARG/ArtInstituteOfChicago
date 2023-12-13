@@ -1,7 +1,14 @@
 import {View, Text, Image, StyleSheet } from 'react-native';
+import {useState, useEffect} from 'react';
+
+import APIController from '../API/APIController';
 
 export default function Home({navigation} : any) {
+    const api = APIController.getInstance();
 
+    useEffect(()=>{
+      api.getArtworkByID(129884);
+    })
     return (
       <View style={styles.mainView}>
         <Text
@@ -10,10 +17,9 @@ export default function Home({navigation} : any) {
         >Home Screen
         </Text>
     <Image
-        style={{    width: 250,
-            height: 120,}}
+        style={{width: 250, height: 120}}
         source={{
-          uri: 'https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/843,/0/default.jpg',
+          uri: 'https://www.artic.edu/iiif/2/1d59d547-aad0-50f5-ac1c-6e516eea146b/full/843,/0/default.jpg',
         }}
       />
       </View>

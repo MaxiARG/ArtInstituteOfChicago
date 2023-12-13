@@ -1,79 +1,77 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Extracto API
+React native app. It utilizes the API provided by the Art Institute of Chicago
+Image Structure:
+It is build in 3 parts:
 
-# Getting Started
+https://www.artic.edu/iiif/2/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+https://www.artic.edu/iiif/2/{identifier}/full/843,/0/default.jpg
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+iiif_url + image_id + /full/843,/0/default.jpg
 
-## Step 1: Start the Metro Server
+full image at different sizes:
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+https://www.artic.edu/iiif/2/{identifier}/full/200,/0/default.jpg
+https://www.artic.edu/iiif/2/{identifier}/full/400,/0/default.jpg
+https://www.artic.edu/iiif/2/{identifier}/full/600,/0/default.jpg
+https://www.artic.edu/iiif/2/{identifier}/full/843,/0/default.jpg
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
+example:
+<Image
+        style={{    width: 250,
+            height: 120,}}
+        source={{
+          uri: 'https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/843,/0/default.jpg',
+        }}
+      />
 
-## Step 2: Start your Application
+Paginacion:
+Listing and search endpoints are paginated. We show 12 records per page by default. Pagination can be controlled via the following query parameters:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+page to request a specific page of results (1-based, default: 1)
+limit to set how many records each page should return (0-based, default: 12)
+Example: https://api.artic.edu/api/v1/artists?page=2&limit=10
 
-### For Android
 
-```bash
-# using npm
-npm run android
 
-# OR using Yarn
-yarn android
-```
+https://api.artic.edu/api/v1/artworks
 
-### For iOS
+artwork particular: https://api.artic.edu/api/v1/artworks/129884
 
-```bash
-# using npm
-npm run ios
 
-# OR using Yarn
-yarn ios
-```
+Videos?  https://api.artic.edu/api/v1/videos?limit=2
+https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/default.mp4
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+# Requerimientos objetivo:
 
-Now that you have successfully run the app, let's modify it.
+1) We want to build a mobile application that allows a user to navigate the catalog of artworks exposed by the Art Institute of Chicago API.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+2) The user should be able to see a thumbnail and a small description of each artwork in the main screen of the app
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+3) When clicking on a thumbnail the user must be sent to a detailed screen of the artwork containing a better quality image and more detailed information about the  piece, the author, and any other data you consider might be relevant for the end user
 
-## Congratulations! :tada:
+4) The user should be able to save some favorite artworks, and should be able to explore them even after the application is completely closed and reopened
 
-You've successfully run and modified your React Native App. :partying_face:
+5) You should use animated transitions and any other cool feature you consider will show up how experienced you are in mobile development
 
-### Now what?
+6) Additional bonus if you implement some kind of push notifications.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+# Extras
 
-# Troubleshooting
+7) Implement a video player?
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+8) Implement a Splash screen?
 
-# Learn More
+9) Create an icon for the APK?
 
-To learn more about React Native, take a look at the following resources:
+11) Incorporar Icons -> Incorporado
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+12) Desarrollo de componentes reutilizables -> Incorporado
+
+13) Agregar animacion de skeleton para los ArtworkItems cuando se estan cargando
+
+
+

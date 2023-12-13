@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function ArtMiniature() {
+export default function ArtworkItems() {
   return (
     <View>
-      <Text>ArtMiniature</Text>
+      <Text>ArtworkItems</Text>
     </View>
   )
 }
