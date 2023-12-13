@@ -18,18 +18,22 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 
-  const favIcon = <Icon name="rocket" size={30} color="black" />;
-  const homeIcon = <Icon name="home" size={30} color="black" />;
-
   return (
     <NavigationContainer>
     <Tab.Navigator screenOptions={{headerShown:false}}>
       <Tab.Screen name="Home" component={Home} 
-      options={{tabBarIcon:()=>{return homeIcon}}}
+      options={{
+        tabBarIcon:({focused})=>{
+          return <Icon name="home" size={30} color="black" style={{color: focused?'#24acb4':'grey'}} />
+        },
+         tabBarActiveTintColor:'#6d32a8'
+        }}
+      
       />
       <Tab.Screen name="Favorites" component={Favorites}
       options={{
-        tabBarIcon:()=>{return favIcon},
+        tabBarIcon:({focused})=>{return  <Icon name="rocket" size={30} color="black" style={{color: focused?'#24acb4':'grey'}} />},
+        tabBarActiveTintColor:'#6d32a8',
         tabBarIconStyle:{color:'black'}
       }}
       />
