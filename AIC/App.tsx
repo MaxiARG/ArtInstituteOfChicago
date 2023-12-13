@@ -17,11 +17,22 @@ const Stack = createNativeStackNavigator();
 
 
 export default function App() {
+
+  const favIcon = <Icon name="rocket" size={30} color="black" />;
+  const homeIcon = <Icon name="home" size={30} color="black" />;
+
   return (
     <NavigationContainer>
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Favorites" component={Favorites} />
+    <Tab.Navigator screenOptions={{headerShown:false}}>
+      <Tab.Screen name="Home" component={Home} 
+      options={{tabBarIcon:()=>{return homeIcon}}}
+      />
+      <Tab.Screen name="Favorites" component={Favorites}
+      options={{
+        tabBarIcon:()=>{return favIcon},
+        tabBarIconStyle:{color:'black'}
+      }}
+      />
     </Tab.Navigator>
     </NavigationContainer>
   );
