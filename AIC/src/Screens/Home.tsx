@@ -3,7 +3,7 @@ import {View, Text, Image, StyleSheet } from 'react-native';
 export default function Home({navigation} : any) {
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#EEEED6' }}>
+      <View style={styles.mainView}>
         <Text
          onPress={()=>{navigation.navigate('Favorites')}}
          style={{color:'black'}}
@@ -21,5 +21,7 @@ export default function Home({navigation} : any) {
   }
 
   const styles = StyleSheet.create({
-    
+    mainView: {
+        flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#EEEED6'
+    },
   });
