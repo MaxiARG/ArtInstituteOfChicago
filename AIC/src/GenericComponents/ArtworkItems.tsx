@@ -31,16 +31,18 @@ export default function ArtworkItems() {
 
   return (
     <View style={style.card}>
-        <View style={{display:'flex', flexDirection:'column', backgroundColor:'red'}}>
-          <View style={style.img}>
-            <Image
-              style={{width: '100%', height: '100%', borderRadius:5 }}
-              source={{
-                uri: 'https://www.artic.edu/iiif/2/1d59d547-aad0-50f5-ac1c-6e516eea146b/full/843,/0/default.jpg',
-              }}
-            />
-          </View>
-          <Text style={{textAlign: 'center'}}>ArtworkItems</Text>
+        <View style={{display:'flex', flexDirection:'column', width:'50%'}}>
+          <View style={{top:20}}>
+            <View style={style.img}>
+              <Image
+                style={{width: '100%', height: '100%', borderRadius:5 }}
+                source={{
+                  uri: 'https://www.artic.edu/iiif/2/1d59d547-aad0-50f5-ac1c-6e516eea146b/full/843,/0/default.jpg',
+                }}
+              />
+            </View>
+            <Text style={{textAlign: 'center', color: 'white'}}>ArtworkItems</Text>
+        </View>
       </View>
     </View>
   )
@@ -59,11 +61,9 @@ const style = StyleSheet.create({
   },
   img:{
     backgroundColor:'red',
-    width:'50%',
+    width:'100%',
     height: '70%',
     display: 'flex',
-    justifyContent:'center',
-    left: 7,
     borderRadius:5,
   }
 })
