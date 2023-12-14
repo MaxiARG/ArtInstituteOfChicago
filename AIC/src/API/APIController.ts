@@ -1,3 +1,4 @@
+import Config from "react-native-config";
 export default class APIController {
     static instance : APIController;
 
@@ -26,7 +27,7 @@ export default class APIController {
       }
       // Filter to reduce network traffic and data consumption
       const filter = '?fields=id,title,image_id,alt_image_ids,api_link,date_display,artist_display,place_of_origin,description,dimensions,medium_display,credit_line,artist_title,category_titles,thumbnail'
-      const url = `https://api.artic.edu/api/v1/artworks/${id}${filter}`
+      const url = `${Config.API_URL}${id}${filter}`
        fetch(url, options).then(async (response) => {
         if (response.ok) {
          const json = await response.json();

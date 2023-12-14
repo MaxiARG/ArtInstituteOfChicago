@@ -73,5 +73,8 @@ https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/de
 
 13) Agregar animacion de skeleton para los ArtworkItems cuando se estan cargando
 
+14) Se utiliza archivo .env
+
+
 
 
