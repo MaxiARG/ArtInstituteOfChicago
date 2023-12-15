@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -30,14 +30,14 @@ const StackHome = () => {
 
 
 export default function App() {
-
+  const navigation = useNavigation()
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen name="StackHome" component={StackHome} 
         options={{
           tabBarIcon:({focused})=>{
-            return <Icon name="home" size={30} color="black" style={{color: focused?Config.COLOR_NARANJA:'grey'}} />
+            return <Icon name="home" size={30} color="black" style={{color: focused?Config.COLOR_NARANJA:Config.COLOR_VERDE}} />
           },
           tabBarActiveTintColor: Config.COLOR_NARANJA,
           tabBarStyle:{backgroundColor:Config.COLOR_NEGRO}
@@ -54,12 +54,12 @@ export default function App() {
           headerLeft: () => {
           return( 
             <View style={{display:'flex', flexDirection:'row', left:10}}>
-              <Icon name="arrow-left" size={20} color="white"/>
+              <Icon name="arrow-left" size={20} color="white" onPress={()=>{navigation.goBack()}}/>
               <Text style={{marginLeft:15, color: 'white', fontSize:15, alignSelf:'center'}}>Back</Text>
             </View>
             )
           },
-          tabBarIcon:({focused})=>{return  <Icon name="star" size={30} color="black" style={{color: focused?Config.COLOR_NARANJA:'grey'}} />},
+          tabBarIcon:({focused})=>{return  <Icon name="star" size={30} color="black" style={{color: focused?Config.COLOR_NARANJA:Config.COLOR_VERDE}} />},
           tabBarActiveTintColor: Config.COLOR_NARANJA,
           tabBarIconStyle:{color:'black'},
           tabBarStyle:{backgroundColor:Config.COLOR_NEGRO}
