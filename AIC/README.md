@@ -61,7 +61,6 @@ https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/de
 
 # Extras
 
-7) Implement a video player?
 
 8) Implement a Splash screen?
 
@@ -75,6 +74,11 @@ https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/de
 
 14) Se utiliza archivo .env
 
+15) Se agrega comando al package.json para compilar e instalar la APK en dispositivo fisico
 
-
+TODO:
+Ocultar tabBar en Details
+Limitar tamaño de AltText
+Limitar tamaño de Imagen Thumbnail
+Agregar Loading a Home
 

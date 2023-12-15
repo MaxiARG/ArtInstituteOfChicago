@@ -11,9 +11,6 @@ import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Details from './src/Screens/Details';
 
-const myIcon = <Icon name="rocket" size={30} color="#900" />;
-
-
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -23,19 +20,38 @@ const StackHome = () => {
     screenOptions={{headerShown:false}}
     >
       <Stack.Screen name='Home' component={Home}/>
-      <Stack.Screen name='Details' component={Details}/>
+      <Stack.Screen name='Details' component={Details} 
+        
+      options={{
+        
+        headerTitleAlign:'center',
+        headerTitleStyle:{color: 'white'},
+        headerTitle:'Details',
+        headerStyle:{backgroundColor:Config.COLOR_VERDE},
+        headerShown:true,
+        headerLeft: () => {
+          const navigation = useNavigation();
+        return( 
+          <View style={{display:'flex', flexDirection:'row', left:10}}>
+            <Icon name="arrow-left" size={20} color="white" onPress={()=>{navigation.goBack()}}/>
+            <Text style={{marginLeft:15, color: 'white', fontSize:15, alignSelf:'center'}}>Back</Text>
+          </View>
+          )
+        }
+      }}
+      />
     </Stack.Navigator>
   );
 }
 
 
 export default function App() {
-  const navigation = useNavigation()
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen name="StackHome" component={StackHome} 
         options={{
+          title:'Home',
           tabBarIcon:({focused})=>{
             return <Icon name="home" size={30} color="black" style={{color: focused?Config.COLOR_NARANJA:Config.COLOR_VERDE}} />
           },
@@ -52,6 +68,7 @@ export default function App() {
           headerTitleAlign: 'center',
           headerTintColor:'white',
           headerLeft: () => {
+            const navigation = useNavigation();
           return( 
             <View style={{display:'flex', flexDirection:'row', left:10}}>
               <Icon name="arrow-left" size={20} color="white" onPress={()=>{navigation.goBack()}}/>

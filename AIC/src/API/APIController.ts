@@ -40,12 +40,10 @@ export default class APIController {
     public async getArtworkPaginated(requestedPage: Number, amount: Number){
       const filter = '&fields=id,main_reference_number,title,short_description,alt_text,image_id,alt_image_ids,api_link,date_display,artist_display,place_of_origin,description,dimensions,medium_display,credit_line,artist_title,category_titles,thumbnail'
       const url = `${Config.API_URL}?page=${requestedPage}&limit=${amount}${filter}`;
-      console.log("Solicitando " , url);
       const options = {}
       const response = await fetch(url, options);
       if (response.ok) {
         const json = await response.json();
-       // console.log(json)//json.data.length
         return json;
       }else{
         console.log("Error")

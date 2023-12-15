@@ -22,7 +22,6 @@ const style = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius:5,
-    resizeMode: 'cover',
-    overflow:'hidden'
+    resizeMode: 'contain',
     },
   })

@@ -8,24 +8,25 @@ import ArtImage from './ArtImage';
 import { useNavigation } from '@react-navigation/native';
 
 export default function ArtworkItems({info}: {info: PaginatedInfo}) {
-  const short_description_placeholder = "The Art Institute of Chicago, founded in 1879, is one of the largest art museums in the world. It is based in the Art Institute of Chicago Building in Chicago's Grant Park"
+  const short_description_placeholder = "The Art Institute of Chicago, founded in 1879, is one of the largest art museums in the world. It is based in the Art Institute of Chicago Building in Chicago's Grant Park. Recognized for its curatorial efforts and popularity among visitors, its collection, stewarded by 11 curatorial departments, is encyclopedic, and includes works such as Georges Seurat's A Sunday on La Grande Jatte, Pablo Picasso's The Old Guitarist, Edward Hopper's Nighthawks, and Grant Wood's American Gothic. Its permanent collection of nearly 300,000 works of art is augmented by more than 30 special exhibitions mounted yearly that illuminate aspects of the collection and present curatorial and scientific research."
+  
   const navigation = useNavigation()
 
   return (
-    <TouchableOpacity style={style.card} onPress={() => {navigation.navigate('Favorites', {info})}} >
+    <View style={style.card}  >
       
         <View style={style.column}>
           <View style={{top:30}}>
-            <View style={style.img}>
+            <TouchableOpacity style={style.img} onPress={() => {navigation.navigate('Details', {info})}}>
               <ArtImage imageUrl={'https://www.artic.edu/iiif/2/'+info.image_id+'/full/843,/0/default.jpg'}/>
-            </View>
+            </TouchableOpacity>
             <Text style={style.alt_text}>{info.thumbnail ? info.thumbnail.alt_text : ''}</Text>
           </View>
       </View>
 
       <View style={{display:'flex', flexDirection:'column', width:'50%', position:'relative', top:3}}>
         <Text style={{color:'white', textAlign:'center', fontSize:12}}>{info.title}</Text>
-        <View style={{height:100}}>
+        <View style={{height:120}}>
           <ScrollView style={{marginTop:15}} nestedScrollEnabled>
             <Text style={style.shortDescription} >{info.short_description || short_description_placeholder}</Text>
           </ScrollView>
@@ -36,7 +37,7 @@ export default function ArtworkItems({info}: {info: PaginatedInfo}) {
         </View>
       </View>
 
-    </TouchableOpacity>
+    </View>
   )
 }
 

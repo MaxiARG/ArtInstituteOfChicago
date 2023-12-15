@@ -33,7 +33,6 @@ export default function Home({navigation} : any) {
     const fetchInfo = (amount : Number) => {
       api.getArtworkPaginated(currentPage, amount).then((info)=>{
         if(info){
-          //console.log(JSON.stringify(info.data[1]));
           if(data){
             setDataWithInfo(data.concat(info.data));
           }else{
@@ -102,11 +101,8 @@ export default function Home({navigation} : any) {
               data={data} 
               renderItem={renderItem} 
               keyExtractor={(item, index) => item.id} 
-             // contentContainerStyle={{ paddingBottom: 300 }}
               onEndReached={()=>{setCurrentPage(currentPage+1);}}
               onEndReachedThreshold={0.8}
-              //onStartReached={()=>{console.log("LLLLLEEE")}} 
-              //flatListRef?.current?.scrollToOffset({ animated: false, offset: 100 });
               />
             }
           
