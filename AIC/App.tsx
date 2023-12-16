@@ -1,6 +1,6 @@
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -32,10 +32,10 @@ const StackHome = () => {
         headerLeft: () => {
           const navigation = useNavigation();
         return( 
-          <View style={{display:'flex', flexDirection:'row', left:10}}>
-            <Icon name="arrow-left" size={20} color="white" onPress={()=>{navigation.goBack()}}/>
+          <Pressable style={{display:'flex', flexDirection:'row', left:10}} onPress={()=>{navigation.goBack()}}>
+            <Icon name="arrow-left" size={20} color="white" />
             <Text style={{marginLeft:15, color: 'white', fontSize:15, alignSelf:'center'}}>Back</Text>
-          </View>
+          </Pressable>
           )
         }
       }}
@@ -70,10 +70,10 @@ export default function App() {
           headerLeft: () => {
             const navigation = useNavigation();
           return( 
-            <View style={{display:'flex', flexDirection:'row', left:10}}>
-              <Icon name="arrow-left" size={20} color="white" onPress={()=>{navigation.goBack()}}/>
+            <Pressable style={{display:'flex', flexDirection:'row', left:10}}  onPress={()=>{navigation.goBack()}}>
+              <Icon name="arrow-left" size={20} color="white"/>
               <Text style={{marginLeft:15, color: 'white', fontSize:15, alignSelf:'center'}}>Back</Text>
-            </View>
+            </Pressable>
             )
           },
           tabBarIcon:({focused})=>{return  <Icon name="star" size={30} color="black" style={{color: focused?Config.COLOR_NARANJA:Config.COLOR_VERDE}} />},

@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { PaginatedInfo } from '../types/types';
 import ArtImage from './ArtImage';
 import { useNavigation } from '@react-navigation/native';
+import { itemExistsInFavs } from '../API/StorageController';
 
 export default function ArtworkItems({info}: {info: PaginatedInfo}) {
   const short_description_placeholder = "The Art Institute of Chicago, founded in 1879, is one of the largest art museums in the world. It is based in the Art Institute of Chicago Building in Chicago's Grant Park. Recognized for its curatorial efforts and popularity among visitors, its collection, stewarded by 11 curatorial departments, is encyclopedic, and includes works such as Georges Seurat's A Sunday on La Grande Jatte, Pablo Picasso's The Old Guitarist, Edward Hopper's Nighthawks, and Grant Wood's American Gothic. Its permanent collection of nearly 300,000 works of art is augmented by more than 30 special exhibitions mounted yearly that illuminate aspects of the collection and present curatorial and scientific research."
@@ -32,8 +33,13 @@ export default function ArtworkItems({info}: {info: PaginatedInfo}) {
           </ScrollView>
         </View>
 
-        <View style={style.fav}>
-          <Icon name="heart" size={22} color="black" style={{color: Config.COLOR_NARANJA }} />
+        <View style={{...style.fav, opacity: itemExistsInFavs(info.api_link) ? 1  : 0.5}}>
+          <Icon 
+          name="heart" 
+          size={22} 
+          color="black" 
+          style={{color: itemExistsInFavs(info.api_link) ? Config.COLOR_ROJO_FAV : Config.COLOR_NARANJA }} 
+          />
         </View>
       </View>
 

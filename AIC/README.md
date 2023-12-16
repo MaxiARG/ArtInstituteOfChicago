@@ -81,4 +81,8 @@ Ocultar tabBar en Details
 Limitar tamaño de AltText
 Limitar tamaño de Imagen Thumbnail
 Agregar Loading a Home
+Agregar texto 'Add' al boton favoritos y experimentar variaciones. Poner el icono como TouchableOpacity asi tiene animacion al presionarlo.
+Probar poner el corazon de favs en opaco para indicar que aun no esta en favs.
+Agregar tipado a parametros de FC creados
+
 
