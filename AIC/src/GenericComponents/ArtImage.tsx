@@ -1,18 +1,34 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, View, ActivityIndicator  } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Image, StyleSheet, Text, View, ActivityIndicator  } from 'react-native';
 import Loading from './Loading';
 
 export default ArtImage = ({imageUrl} : {imageUrl:String}) => {
   const [loading, setLoading] = useState(true);
+  useEffect(()=>{
+    if(imageUrl.includes('null')){
+      setLoading(false);
+    }
+  },[imageUrl]);
+  const showImage = () => {
+    if(imageUrl && !imageUrl.includes('null')){
+      return(
+        <Image
+        style={style.image}
+        alt="Loaded from external source"
+        source={{uri: imageUrl}}
+        onLoadEnd={()=>{setLoading(false)}}
+      />
+      )
+    } else {
+      return(
+        <Text style={{fontSize:15}}>Image Not Available</Text>
+      )
+    }
+  }
   return (
-    <View>
+    <View style={{flex:1, justifyContent:'center', alignContent:'center', alignItems:'center'}}>
       {loading && <Loading/> }
-      <Image
-                style={style.image}
-                alt="Loaded from external source"
-                source={{uri: imageUrl}}
-                onLoadEnd={()=>{setLoading(false)}}
-              />
+      {showImage()}
     </View>
   );
 };
@@ -22,6 +38,7 @@ const style = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius:5,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
+    overflow:'hidden'
     },
   })
