@@ -64,7 +64,7 @@ https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/de
 
 8) Implement a Splash screen?
 
-9) Create an icon for the APK?
+9) Create an icon for the APK? -> Agregado
 
 11) Incorporar Icons -> Incorporado
 
@@ -82,7 +82,7 @@ Limitar tamaño de AltText
 Limitar tamaño de Imagen Thumbnail
 Agregar Loading a Home
 Agregar texto 'Add' al boton favoritos y experimentar variaciones. Poner el icono como TouchableOpacity asi tiene animacion al presionarlo.
-Probar poner el corazon de favs en opaco para indicar que aun no esta en favs.
+Probar poner el corazon de favs en opaco para indicar que aun no esta en favs. -> hecho
 Agregar tipado a parametros de FC creados
-
+Situar el Loading como Absolute o por ssobre el espacio de imagen
 

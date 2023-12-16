@@ -1,29 +1,15 @@
-import {View, Text, Image, StyleSheet, FlatList, ScrollView } from 'react-native';
+import {View, Text, StyleSheet, FlatList, Alert  } from 'react-native';
 import {useState, useEffect, useRef} from 'react';
 import Config from 'react-native-config';
 import AIC_Logo from '../GenericComponents/AIC_Logo';
 import { PaginatedInfo } from '../types/types';
 import APIController from '../API/APIController';
 import ArtworkItems from '../GenericComponents/ArtworkItems';
-import Pagination from '../GenericComponents/Pagination';
-// export type PaginatedInfo = {
-//   id : Number,
-//   title: String,
-//   short_description: String,
-//   alt_text: String, //en thumbnail.alt_text
-//   image_id: String,//07f01f51-2be4-8c00-6b8c-067b67f83ccf
-//   alt_image_ids: String[],
-//   api_link: String, //https://api.artic.edu/api/v1/artworks/117841
-//   date_display: String,//"500–400 BCE"
-//   artist_display: String,
-//   place_of_origin: String,
-//   description: String,
-//   dimensions: String,
-//   medium_display: String,//Ceramic and pigment
-//   credit_line: String,
-//   artist_title: String,
-//   thumbnail: String
-// }
+import {PermissionsAndroid} from 'react-native';
+import messaging from '@react-native-firebase/messaging';
+import UtilesNotificacion from '../Utils/UtilsNotifications';
+import PushNotification from "react-native-push-notification";
+ 
 export default function Home({navigation} : any) {
     const api = APIController.getInstance();
     const [currentPage, setCurrentPage] = useState(1);
@@ -73,8 +59,22 @@ export default function Home({navigation} : any) {
     }
 
     useEffect(()=>{
-     // api.getArtworkByID(129884);
-     // TODO check page limits
+      
+      messaging().getToken()
+      .then((t)=>{console.log(t)});
+      PushNotification.localNotification({
+        channelId: 'default-channel-id',
+        title: 'Notificación automática',
+        message: '¡Hola! Esta es una notificación automática.',
+      });
+      // const unsubscribe = messaging().onMessage(async remoteMessage => {
+      //   Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+      // });
+      // return unsubscribe;
+
+    },[])
+    useEffect(()=>{
+      //PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
       fetchInfo(25);
     },[currentPage])
 
