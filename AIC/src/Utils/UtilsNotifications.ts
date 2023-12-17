@@ -17,7 +17,8 @@ export default class UtilesNotificacion {
     });
 
     messaging().onMessage((remoteMessage) => {
-      this.mostrarNotificacion(channelId, 'title', 'message');
+        console.log(JSON.stringify(remoteMessage))
+      this.mostrarNotificacion(channelId, remoteMessage.notification?.title, remoteMessage.notification?.body);
     });
 
     PushNotification.configure({
@@ -86,7 +87,6 @@ export default class UtilesNotificacion {
       authStatus === messaging.AuthorizationStatus.PROVISIONAL;
     if (enabled) {
       this.getToken();
-      this.getToken().then((t)=>{console.log(t)})
     }
     if (Platform.OS === 'android') {
         //Request Android permission (For API level 33+, for 32 or below is not required)

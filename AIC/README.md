@@ -62,13 +62,13 @@ https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/de
 # Extras
 
 
-8) Implement a Splash screen?
+8) TODO: Implement a Splash screen? ->
 
-9) Create an icon for the APK? -> Agregado
+9) Create an icon for the APK
 
-11) Incorporar Icons -> Incorporado
+11) Incorporar Icons
 
-12) Desarrollo de componentes reutilizables -> Incorporado
+12) Desarrollo de componentes reutilizables 
 
 13) Agregar animacion de skeleton para los ArtworkItems cuando se estan cargando
 
@@ -76,13 +76,12 @@ https://www.artic.edu/iiif/2/fae3fdc2-7a52-5fc4-c634-c2033f9b2a46/full/200,/0/de
 
 15) Se agrega comando al package.json para compilar e instalar la APK en dispositivo fisico
 
+16) Se agrega sistema de guardado en LocalStorage
+
 TODO:
 Ocultar tabBar en Details
-Limitar tamaño de AltText
-Limitar tamaño de Imagen Thumbnail
 Agregar Loading a Home
 Agregar texto 'Add' al boton favoritos y experimentar variaciones. Poner el icono como TouchableOpacity asi tiene animacion al presionarlo.
-Probar poner el corazon de favs en opaco para indicar que aun no esta en favs. -> hecho
 Agregar tipado a parametros de FC creados
 Situar el Loading como Absolute o por ssobre el espacio de imagen
 

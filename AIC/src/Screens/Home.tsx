@@ -1,14 +1,14 @@
 import {View, Text, StyleSheet, FlatList, Alert  } from 'react-native';
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef, useCallback} from 'react';
 import Config from 'react-native-config';
 import AIC_Logo from '../GenericComponents/AIC_Logo';
 import { PaginatedInfo } from '../types/types';
 import APIController from '../API/APIController';
 import ArtworkItems from '../GenericComponents/ArtworkItems';
-import {PermissionsAndroid} from 'react-native';
 import messaging from '@react-native-firebase/messaging';
-import UtilesNotificacion from '../Utils/UtilsNotifications';
 import PushNotification from "react-native-push-notification";
+import { useFocusEffect } from '@react-navigation/native';
+import { clearStorage } from '../API/StorageController';
  
 export default function Home({navigation} : any) {
     const api = APIController.getInstance();
@@ -25,6 +25,8 @@ export default function Home({navigation} : any) {
             setDataWithInfo(info.data);
           }
         }
+      }).catch((e)=>{
+        console.log(e);
       })
     }
 
@@ -62,21 +64,16 @@ export default function Home({navigation} : any) {
       
       messaging().getToken()
       .then((t)=>{console.log(t)});
-      PushNotification.localNotification({
-        channelId: 'default-channel-id',
-        title: 'Notificación automática',
-        message: '¡Hola! Esta es una notificación automática.',
-      });
-      // const unsubscribe = messaging().onMessage(async remoteMessage => {
-      //   Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-      // });
-      // return unsubscribe;
 
     },[])
-    useEffect(()=>{
-      //PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+
+    useFocusEffect(useCallback(()=>{
+      //clearStorage();
       fetchInfo(25);
-    },[currentPage])
+      return () => {
+        //console.log('Screen 1 unfocused!');
+      };
+    },[currentPage]))
 
     const renderItem = ({item} : { item: PaginatedInfo }) => {
      return (<ArtworkItems info={item} /> )
@@ -95,6 +92,7 @@ export default function Home({navigation} : any) {
         </View>
 
           <View style={{backgroundColor: Config.COLOR_GRIS_BACKGROUND, height:'90%'}}>
+
             {data && 
               <FlatList 
               ref={flatListRef}

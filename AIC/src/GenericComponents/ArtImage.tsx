@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, Text, View, ActivityIndicator  } from 'react-native';
+import { Image, StyleSheet, Text, View  } from 'react-native';
 import Loading from './Loading';
 
 export default ArtImage = ({imageUrl} : {imageUrl:String}) => {
