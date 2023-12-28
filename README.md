@@ -1,3 +1,8 @@
+# Notas importantes:
+
+1- El proyecto utiliza Firebase Messaging para implementar notificaciones Push. Es necesario contar con las credenciales de
+google-service.json. Este archivo debe ser provisto para el funcionamiento de la app. Subirlo al repositorio hace que salten todas las alarmas de Github y Google por estar publicando un archivo importante.
+
 # Requerimientos objetivo:
 
 1) We want to build a mobile application that allows a user to navigate the catalog of artworks exposed by the Art Institute of Chicago API.
