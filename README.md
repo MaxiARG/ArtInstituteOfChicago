@@ -1,7 +1,7 @@
 # Notas importantes:
 
 1- El proyecto utiliza Firebase Messaging para implementar notificaciones Push. Es necesario contar con las credenciales de
-google-service.json. Este archivo debe ser provisto para el funcionamiento de la app. Subirlo al repositorio hace que salten todas las alarmas de Github y Google por estar publicando un archivo importante.
+google-service.json. Este archivo normalmente no debe ser subido al repositorio, por motivos de seguridad. Pero sin el mismo, la app no compilaria si quisieran hacerlo. Por ese motivo, subo el certificado.
 
 # Requerimientos objetivo:
 
