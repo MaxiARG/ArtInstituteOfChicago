@@ -1,3 +1,8 @@
+# Notas importantes:
+
+1- El proyecto utiliza Firebase Messaging para implementar notificaciones Push. Es necesario contar con las credenciales de
+google-service.json. Este archivo normalmente no debe ser subido al repositorio, por motivos de seguridad. Pero sin el mismo, la app no compilaria si quisieran hacerlo. Por ese motivo, subo el certificado.
+
 # Requerimientos objetivo:
 
 1) We want to build a mobile application that allows a user to navigate the catalog of artworks exposed by the Art Institute of Chicago API.
@@ -8,9 +13,7 @@
 
 4) The user should be able to save some favorite artworks, and should be able to explore them even after the application is completely closed and reopened
 
-5) You should use animated transitions and any other cool feature you consider will show up how experienced you are in mobile development
-
-6) Additional bonus if you implement some kind of push notifications.
+5) Implement some kind of push notifications.
 
 # Extras
 
@@ -22,7 +25,7 @@
 
 14) Se utiliza archivo .env
 
-15) Se agrega comando al package.json para compilar e instalar la APK en dispositivo fisico
+15) Se agrega comandos al package.json para compilar e instalar la APK en dispositivo fisico
 
 16) Se agrega sistema de guardado en LocalStorage
 
