@@ -1,3 +1,30 @@
+Compilar test:
+detox build --configuration android.emu.release
+Correr test:
+detox test --configuration android.emu.release
+
+corre detox de nuevo
+detox test -c  android.emu.debug --reuse  # or ios.sim.debug 
+modo verbose
+detox test -c <configuration> -l trace #In most cases we recommend using debug log level to understand the failed test better.
+
+tipado detox:
+npm install --save-dev @types/detox
+
+
+
+
+agregar test y intellisense jest:
+npm install --save-dev jest
+npm i @types/jest --save-dev
+npm install --save-dev ts-jest @types/jest @types/node
+
+
+
+
+
+
+
 describe('Example', () => {
   beforeAll(async () => {
     await device.launchApp();

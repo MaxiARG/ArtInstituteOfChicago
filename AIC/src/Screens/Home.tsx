@@ -87,7 +87,7 @@ export default function Home({navigation} : any) {
             <View style={styles.logo}>
               <AIC_Logo />
               </View>
-            <Text style={styles.title}>Welcome</Text>
+            <Text style={styles.title} testID="WelcomeTitle">Welcome</Text>
           </View>
         </View>
 
