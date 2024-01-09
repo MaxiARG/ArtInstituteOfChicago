@@ -13,9 +13,7 @@ google-service.json. Este archivo normalmente no debe ser subido al repositorio,
 
 4) The user should be able to save some favorite artworks, and should be able to explore them even after the application is completely closed and reopened
 
-5) You should use animated transitions and any other cool feature you consider will show up how experienced you are in mobile development
-
-6) Additional bonus if you implement some kind of push notifications.
+5) Implement some kind of push notifications.
 
 # Extras
 
@@ -27,7 +25,7 @@ google-service.json. Este archivo normalmente no debe ser subido al repositorio,
 
 14) Se utiliza archivo .env
 
-15) Se agrega comando al package.json para compilar e instalar la APK en dispositivo fisico
+15) Se agrega comandos al package.json para compilar e instalar la APK en dispositivo fisico
 
 16) Se agrega sistema de guardado en LocalStorage
 
